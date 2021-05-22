@@ -1,12 +1,4 @@
-import { render } from '@testing-library/react';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import './board.css';
-
-
-
-class ToggleUp extends React.Component{
+lass ToggleUp extends React.Component{
   
   constructor(props){
     super(props);
@@ -22,7 +14,7 @@ class ToggleUp extends React.Component{
   }
 
   render(){
-    return ( <div><div><button onClick={this.handleClick}></button></div>
+    return ( <div><div><button onClick={this.handleClick}>Click Here</button></div>
      <div>{this.state.isToggleOn ? 'ON': 'OFF'}</div>
      
     <div>You clicked {this.count} times</div></div>);
