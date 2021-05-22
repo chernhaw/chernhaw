@@ -1,0 +1,35 @@
+import { render } from '@testing-library/react';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import './board.css';
+
+
+
+class ToggleUp extends React.Component{
+  
+  constructor(props){
+    super(props);
+    this.state = {isToggleOn: true};
+    this.count=0;
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.currentCount = this.count +1;
+    this.count = this.currentCount;
+    this.setState(state => ({isToggleOn: !state.isToggleOn}) );
+  }
+
+  render(){
+    return ( <div><div><button onClick={this.handleClick}></button></div>
+     <div>{this.state.isToggleOn ? 'ON': 'OFF'}</div>
+     
+    <div>You clicked {this.count} times</div></div>);
+  }
+}
+
+ReactDOM.render (
+  <ToggleUp />,
+  document.getElementById('root')
+);
