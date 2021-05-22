@@ -1,4 +1,4 @@
-lass ToggleUp extends React.Component{
+class ToggleUp extends React.Component{
   
   constructor(props){
     super(props);
