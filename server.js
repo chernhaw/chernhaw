@@ -27,6 +27,23 @@ var db = pgp('postgres://postgres:postgres@localhost:5432/mydb')
 //     console.log('ERROR:', error)
 //   })
 
+db.one('INSERT INTO public.User(userid, email, firstname, lastname, grant_date) VALUES(${userid}, ${email}, ${firstname}, ${lastname}, ${grantdate}) RETURNING *'
+, {
+            userid: 12,
+            email: "hd@mail",
+            firstname: "Hammy",
+            lastname: "Dong",
+            grantdate : new Date(),
+        }
+        
+        )
+        
+        .catch(function (error) {
+    console.log('ERROR:', error)
+  })
+
+
+
 db.one('select * from public.User where userid=11')
   .then(function (data) {
     console.log('DATA:', data.email)
