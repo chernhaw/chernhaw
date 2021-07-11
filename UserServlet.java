@@ -100,6 +100,12 @@ public class UserServlet extends HttpServlet {
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");
 		
+		String url = "/index.jsp";
+		
+		ServletContext sc = getServletContext();
+		
+		HttpSession session = request.getSession();
+		
 		// TODO Auto-generated method stub
 		if (action.equals("add")) {
 			
@@ -112,6 +118,7 @@ public class UserServlet extends HttpServlet {
 			System.out.println(lastName);
 			
 			UserDB.insert(email, firstName, lastName);
+			
 		} else if (action.equals("Update User")) {
 			
 			System.out.println("update current user");
@@ -119,11 +126,22 @@ public class UserServlet extends HttpServlet {
 			System.out.println(firstName);
 			System.out.println(lastName);
 			
-			System.out.print("To implement update");
 			
+			User user = UserDB.getUserByEmail(email);
+			
+			//user.setEmail(email);
+			user.setFirstname(firstName);
+			user.setLastname(lastName);
+			
+			UserDB.updatebyEmail(user);
+			
+			user = UserDB.getUserByEmail(email);
+			
+			session.setAttribute("user", user);
+			url = "/user.jsp";
 		}
 		
-		
+		sc.getRequestDispatcher(url).forward(request, response);
 		
 	}
 
