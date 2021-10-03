@@ -1,6 +1,6 @@
 
 
-theCall <- "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=taleban&api-key=tO2yo5wBn2nnojTIjbzxytCmyukYl4mH"
+theCall <- "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=taleban&api-key=tO2yo5wBn2nnojTIjbzxytCmH"
 
 
 require(plyr)
